@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-grafica',
@@ -7,8 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GraficaComponent implements OnInit {
 
-  constructor() { }
+  pieChartData;
 
-  ngOnInit() {}
+  constructor() {
+
+  }
+
+  ngOnInit(): void {
+    this.useAngularLibrary();
+  }
+
+  useAngularLibrary() {
+    this.pieChartData = {
+      chartType: 'PieChart',
+      dataTable: [
+        ['Tipo de venta', 'Percent'],
+        ['En venta',     33],
+        ['Servicios',      33],
+        ['Trabajos',  33]
+      ],
+      options: {
+      'title': 'Ventas'
+      }
+    };
+  }
+
+
 
 }

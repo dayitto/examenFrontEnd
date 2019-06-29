@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private usuarioService: UsuarioService,
+    private  router:  Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  login(form){
+    if(form._directives[0].viewModel === this.usuarioService.usuario && form._directives[1].viewModel === this.usuarioService.pass){
+      this.usuarioService.logged = true;
+      this.router.navigateByUrl('dashboard');
+    }
   }
 
 }

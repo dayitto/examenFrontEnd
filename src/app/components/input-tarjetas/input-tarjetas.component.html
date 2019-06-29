@@ -1,0 +1,19 @@
+<form (ngSubmit)="logForm()">
+    <ion-item>
+        <ion-label>Tipo</ion-label>
+        <ion-select placeholder="Seleccionar tipo de tarjeta" [(ngModel)]="tarjeta.tipo" name="tipo">
+          <ion-select-option value="0">Visa</ion-select-option>
+          <ion-select-option value="1">MasterCard</ion-select-option>
+          <ion-select-option value="2">American Express</ion-select-option>
+        </ion-select>
+      </ion-item>
+  <ion-item>
+    <ion-label>Número: </ion-label>
+    <ion-input type="text" [(ngModel)]="tarjeta.numero" name="numero" required="true"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Fecha de expiración: </ion-label>
+    <ion-input type="number" [(ngModel)]="tarjeta.mes" name="mes"></ion-input>/<ion-input type="number" [(ngModel)]="tarjeta.year" name="year"></ion-input>
+  </ion-item>
+  <ion-button type="submit">Guardar</ion-button>
+</form>

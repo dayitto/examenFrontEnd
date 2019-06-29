@@ -3,5 +3,5 @@ export class Tarjeta {
     tipo: number;
     numero: string;
     mes: number;
-    año: number;
+    year: number;
 }

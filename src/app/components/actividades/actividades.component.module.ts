@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { IonicModule } from "@ionic/angular";
 import { ActividadesComponent } from './actividades.component';
-import { FormsModule } from '@angular/forms';
+import { InputActividadesModule } from '../input-actividades/input-actividades.component.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    IonicModule,
+    InputActividadesModule
   ],
 
   exports: [ActividadesComponent]

@@ -1,3 +1,13 @@
-<p>
-  clima works!
-</p>
+<ion-grid>
+  <h1>Clima en {{ciudad}} en 5 días</h1>
+    <ion-row class="bg-primary">
+      <ion-col *ngFor="let clima of climas">
+        {{(clima.main.temp - 273.15).toFixed(0)}}°C
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let clima of climas">
+          {{clima.dia}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>

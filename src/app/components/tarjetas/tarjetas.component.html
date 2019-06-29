@@ -1,3 +1,31 @@
-<p>
-  tarjetas works!
-</p>
+<ion-grid>
+  <h1>Lista de Tarjetas registradas</h1>
+  <h3 *ngIf="arrayVacio()">No hay tarjetas registradas</h3>
+  <ion-grid *ngFor="let tarjeta of tarjetas">
+    <ion-row>
+      <ion-col>
+        {{tipos[tarjeta.tipo]}}
+      </ion-col>
+      <ion-col>
+        {{tarjeta.numero}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        {{tarjeta.mes}}/{{tarjeta.year}}
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="presentPopover(tarjeta)">
+          <ion-icon name="brush"></ion-icon>
+        </ion-button>
+        <ion-button color="danger" (click)="presentAlertConfirm2(tarjeta.id)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab-button (click)="presentPopover()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+
+</ion-grid>

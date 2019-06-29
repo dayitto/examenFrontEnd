@@ -1,0 +1,15 @@
+<form (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Descripcion: </ion-label>
+      <ion-input type="text" [(ngModel)]="actividad.descripcion" name="descripcion" required="true"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fecha: </ion-label>
+      <ion-datetime displayFormat="MM DD YY" [(ngModel)]="actividad.fecha" [ngModelOptions]="{standalone: true}"></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label>Hora: </ion-label>
+        <ion-textarea [(ngModel)]="actividad.hora" name="hora" ></ion-textarea>
+      </ion-item>
+    <ion-button type="submit">Guardar</ion-button>
+  </form>

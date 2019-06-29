@@ -1,31 +1,31 @@
-<ion-item>
-    <ion-button slot="start">
-      Start
-    </ion-button>
-    <ion-label>Button Start/End</ion-label>
-    <ion-button slot="end">
-      End
-    </ion-button>
-  </ion-item>
-  
-  <ion-item>
-    <ion-button slot="start">
-      Start Icon
-      <ion-icon name="home" slot="end"></ion-icon>
-    </ion-button>
-    <ion-label>Buttons with Icons</ion-label>
-    <ion-button slot="end">
-      <ion-icon name="star" slot="end"></ion-icon>
-      End Icon
-    </ion-button>
-  </ion-item>
-  
-  <ion-item>
-    <ion-button slot="start">
-      <ion-icon slot="icon-only" name="navigate"></ion-icon>
-    </ion-button>
-    <ion-label>Icon only Buttons</ion-label>
-    <ion-button slot="end">
-      <ion-icon slot="icon-only" name="star"></ion-icon>
-    </ion-button>
-  </ion-item>
+<ion-grid>
+  <h1>Lista de actividades</h1>
+  <h3 *ngIf="arrayVacio()">No hay actividades registradas</h3>
+  <ion-grid *ngFor="let actividad of actividades">
+    <ion-row>
+      <ion-col>
+        {{actividad.hora}}
+      </ion-col>
+      <ion-col>
+        {{actividad.descripcion}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        {{actividad.fecha}}
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="presentPopover(actividad)">
+          <ion-icon name="brush"></ion-icon>
+        </ion-button>
+        <ion-button color="danger" (click)="presentAlertConfirm(actividad.id)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab-button (click)="presentPopover(actividad)">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+
+</ion-grid>

@@ -10,23 +10,11 @@ export class ActividadService {
 private httpHeaders=new HttpHeaders({'Content-Type':'application/json'})
   constructor(private http:HttpClient) { }
 
-  getActividades(): Observable<Actividad[]>{
-    return this.http.get<Actividad[]>(this.urlEndPoint)
-  }
+  getActividades = (): Observable<Actividad[]> => this.http.get<Actividad[]>(this.urlEndPoint);
 
-  create(actividad: Actividad) : Observable<Actividad>{
-    return this.http.post<Actividad>(this.urlEndPoint,actividad,{headers: this.httpHeaders})
-  }
+  save = (actividad: Actividad) : Observable<Actividad> => actividad.id === undefined ? this.http.post<Actividad>(this.urlEndPoint,actividad,{headers: this.httpHeaders}) : this.http.put<Actividad>(`${this.urlEndPoint}/${actividad.id}`,actividad,{headers: this.httpHeaders});
 
-  getActividad(id: number) : Observable<Actividad>{
-    return this.http.get<Actividad>(`${this.urlEndPoint}/${id}`)
-  }
+  getActividad = (id: number) : Observable<Actividad> => this.http.get<Actividad>(`${this.urlEndPoint}/${id}`);
 
-  update(actividad: Actividad) : Observable<Actividad>{
-    return this.http.put<Actividad>(`${this.urlEndPoint}/${actividad.id}`,actividad,{headers: this.httpHeaders})
-  }
-
-  delete(id: number) : Observable<Actividad>{
-    return this.http.delete<Actividad>(`${this.urlEndPoint}/${id}`,{headers: this.httpHeaders})
-  }
+  delete = (id: number) : Observable<Actividad> => this.http.delete<Actividad>(`${this.urlEndPoint}/${id}`,{headers: this.httpHeaders});
 }
